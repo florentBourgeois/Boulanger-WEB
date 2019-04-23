@@ -2,19 +2,38 @@ package fr.CCI.Java.boulangermicroservice.model;
 
 public class Produit {
 	
+	private int id; 
 	private String nom;
 	private int valeur;
 	private String img;
 	
 	
-	public Produit(String nom, int valeur, String img) {
+	public Produit() {
+	}
+	
+	
+	public Produit(int id,String nom, int valeur, String img) {
 		super();
+		this.id = id;
 		this.nom = nom;
 		this.valeur = valeur;
 		this.img = img;
 	}
 	
 	
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	public String getNom() {
 		return nom;
 	}
@@ -38,7 +57,7 @@ public class Produit {
 
 	@Override
 	public String toString() {
-		return nom + " vendu à " + valeur + " euro";
+		return id+ " " + nom + " vendu à " + valeur + " euro";
 	}
 	
 	
