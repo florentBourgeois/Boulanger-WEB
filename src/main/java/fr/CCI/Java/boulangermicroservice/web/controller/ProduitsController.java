@@ -7,11 +7,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.CCI.Java.boulangermicroservice.dao.ProduitDAO;
@@ -34,23 +36,35 @@ public class ProduitsController {
 		return produitDao.findById(id);
 	}
 
-	/*
+	
 	@PostMapping(value = "/produits")
     public void ajouterProduit(@RequestBody Produit produit){
-		produitDao.addProduit(produit);
+		produitDao.save(produit);
 	}
 	
 	
-	@PutMapping(value = "/produits/{id}")
-	public void updateProduit(@PathVariable int id, @RequestBody Produit p) {
-		produitDao.update(id, p);
+	@PutMapping(value = "/produits")
+	public void updateProduit(@RequestBody Produit p) {
+		produitDao.save(p);
 	}
 	
 	
+	@GetMapping(value = "/produits/parNom/{nom}")
+	public Produit obtenirProduitAvecNom(@PathVariable String nom) {
+		return produitDao.findByNom(nom);
+	}
 	
-	
-	
+	/*
+	@GetMapping(value = "/produits/parNomEtValeur/{name}")
+	public Produit obtenirProduitAvecNom(@PathVariable String nom, @RequestParam(value="valeur", required=false, defaultValue="1") int valeur)  {
+		
+		return produitDao.chercherProduitCherAvecNom(valeur, nom);
+	}
+	*/
     
-    */
-
+	@GetMapping(value = "/produits/plusCherQue/{valeur}")
+	public List<Produit> obtenirProduitPlusCherQue(@PathVariable int valeur) {
+		return produitDao.findByValeurGreaterThan(valeur);
+	}
+	
 }
