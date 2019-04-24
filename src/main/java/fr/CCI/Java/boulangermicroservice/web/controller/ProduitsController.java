@@ -51,16 +51,16 @@ public class ProduitsController {
 	
 	@GetMapping(value = "/produits/parNom/{nom}")
 	public Produit obtenirProduitAvecNom(@PathVariable String nom) {
-		return produitDao.findByNom(nom);
+		Produit p = produitDao.findByNomIgnoreCase(nom);
+		return p;
 	}
 	
-	/*
-	@GetMapping(value = "/produits/parNomEtValeur/{name}")
+	
+	@GetMapping(value = "/produits/parNomEtValeur/{nom}")
 	public Produit obtenirProduitAvecNom(@PathVariable String nom, @RequestParam(value="valeur", required=false, defaultValue="1") int valeur)  {
-		
-		return produitDao.chercherProduitCherAvecNom(valeur, nom);
+		return null;//produitDao.chercherProduitCherAvecNom(valeur, nom);
 	}
-	*/
+	
     
 	@GetMapping(value = "/produits/plusCherQue/{valeur}")
 	public List<Produit> obtenirProduitPlusCherQue(@PathVariable int valeur) {

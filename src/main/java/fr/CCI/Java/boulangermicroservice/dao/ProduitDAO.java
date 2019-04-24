@@ -14,7 +14,7 @@ public interface ProduitDAO extends JpaRepository<Produit, Integer>{
 
 	
 	Produit findById(int id);
-	Produit findByNom(String nom);
+	Produit findByNomIgnoreCase(String nom);
 	List<Produit> findByValeurGreaterThan(int valeur);
 	
 	

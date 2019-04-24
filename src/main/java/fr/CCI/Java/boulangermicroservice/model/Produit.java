@@ -16,6 +16,7 @@ public class Produit {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
 	private int id; 
+	@Column(unique=true)
 	private String nom;
 	private int valeur;
 	private String img;
