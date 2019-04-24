@@ -25,4 +25,4 @@ INSERT INTO PRODUIT (ID , NOM ,VALEUR ,IMG )
 
 
 INSERT INTO PRODUIT (ID , NOM ,VALEUR ,IMG ) 
-		VALUES (5, 'Baba', 50, 'https://natashaskitchen.com/wp-content/uploads/2012/06/cupcake-recipe-1-500x467.jpg);
+		VALUES (5, 'Baba', 50, 'https://natashaskitchen.com/wp-content/uploads/2012/06/cupcake-recipe-1-500x467.jpg');
