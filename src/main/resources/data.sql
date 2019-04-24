@@ -21,7 +21,7 @@ INSERT INTO PRODUIT (ID , NOM ,VALEUR ,IMG )
 
 
 INSERT INTO PRODUIT (ID , NOM ,VALEUR ,IMG ) 
-		VALUES (4, 'Arc-en-Ciel', 200, 'https://www.landolakes.com/RecipeManagementSystem/media/Recipe-Media-Files/Recipes/Retail/DesktopImages/Rainbow-Cake600x600_2.jpg?ext=.jpg);
+		VALUES (4, 'Arc-en-Ciel', 200, 'https://www.landolakes.com/RecipeManagementSystem/media/Recipe-Media-Files/Recipes/Retail/DesktopImages/Rainbow-Cake600x600_2.jpg?ext=.jpg');
 
 
 INSERT INTO PRODUIT (ID , NOM ,VALEUR ,IMG ) 
