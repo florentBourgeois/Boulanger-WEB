@@ -14,33 +14,33 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.CCI.Java.boulangermicroservice.dao.ProduitDAO;
-import fr.CCI.Java.boulangermicroservice.model.Produit;
+import fr.CCI.Java.boulangermicroservice.dao.ProduitDAO_Old;
+import fr.CCI.Java.boulangermicroservice.model.Produit_Old;
 
 @RestController
 public class ProduitsController {
 	
-	ProduitDAO produitDao = new ProduitDAO();
+	ProduitDAO_Old produitDao = new ProduitDAO_Old();
 	
 	@GetMapping(value= "/produits")
-	public List<Produit> listeDesProduits(){
+	public List<Produit_Old> listeDesProduits(){
 		return produitDao.getProduits();
 	}
 	
 	@GetMapping(value= "/produits/{id}")
-	public Produit produitParID(@PathVariable int id) {
+	public Produit_Old produitParID(@PathVariable int id) {
 		return produitDao.getByID(id);
 	}
 
 	
 	@PostMapping(value = "/produits")
-    public void ajouterProduit(@RequestBody Produit produit){
+    public void ajouterProduit(@RequestBody Produit_Old produit){
 		produitDao.addProduit(produit);
 	}
 	
 	
 	@PutMapping(value = "/produits/{id}")
-	public void updateProduit(@PathVariable int id, @RequestBody Produit p) {
+	public void updateProduit(@PathVariable int id, @RequestBody Produit_Old p) {
 		produitDao.update(id, p);
 	}
 	

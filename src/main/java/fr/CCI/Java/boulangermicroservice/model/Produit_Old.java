@@ -1,6 +1,6 @@
 package fr.CCI.Java.boulangermicroservice.model;
 
-public class Produit {
+public class Produit_Old {
 	
 	private int id; 
 	private String nom;
@@ -8,11 +8,11 @@ public class Produit {
 	private String img;
 	
 	
-	public Produit() {
+	public Produit_Old() {
 	}
 	
 	
-	public Produit(int id,String nom, int valeur, String img) {
+	public Produit_Old(int id,String nom, int valeur, String img) {
 		super();
 		this.id = id;
 		this.nom = nom;
