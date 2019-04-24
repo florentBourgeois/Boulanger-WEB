@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import fr.CCI.Java.boulangermicroservice.dao.ProduitDAO;
 import fr.CCI.Java.boulangermicroservice.model.Produit;
@@ -23,5 +24,15 @@ public class VueHTMLController {
 		model.addAttribute("ps", produits);
 		return "Accueil";
 	}
+
+	
+	@GetMapping(value= "/produit-detail/{id}")
+	public String produitdetail(Model model, @PathVariable int id) {
+		Produit produit = produitDao.findById(id);
+		
+		model.addAttribute("p", produit);
+		return "Detail";
+	}
 	
 }
+
