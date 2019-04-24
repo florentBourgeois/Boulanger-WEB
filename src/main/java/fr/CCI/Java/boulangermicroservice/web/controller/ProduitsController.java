@@ -14,46 +14,42 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.CCI.Java.boulangermicroservice.dao.ProduitDAO;
 import fr.CCI.Java.boulangermicroservice.dao.ProduitDAO_Old;
-import fr.CCI.Java.boulangermicroservice.model.Produit_Old;
+import fr.CCI.Java.boulangermicroservice.model.Produit;
 
 @RestController
 public class ProduitsController {
 	
-	ProduitDAO_Old produitDao = new ProduitDAO_Old();
+	@Autowired
+	private ProduitDAO produitDao;
 	
 	@GetMapping(value= "/produits")
-	public List<Produit_Old> listeDesProduits(){
-		return produitDao.getProduits();
+	public List<Produit> listeDesProduits(){
+		return produitDao.findAll();
 	}
 	
 	@GetMapping(value= "/produits/{id}")
-	public Produit_Old produitParID(@PathVariable int id) {
-		return produitDao.getByID(id);
+	public Produit produitParID(@PathVariable int id) {
+		return produitDao.findById(id);
 	}
 
-	
+	/*
 	@PostMapping(value = "/produits")
-    public void ajouterProduit(@RequestBody Produit_Old produit){
+    public void ajouterProduit(@RequestBody Produit produit){
 		produitDao.addProduit(produit);
 	}
 	
 	
 	@PutMapping(value = "/produits/{id}")
-	public void updateProduit(@PathVariable int id, @RequestBody Produit_Old p) {
+	public void updateProduit(@PathVariable int id, @RequestBody Produit p) {
 		produitDao.update(id, p);
 	}
 	
 	
 	
 	
-	/*
-    @PostMapping (value = "/produits")
-    public void ajouterProduit(@RequestBody Produit produit){
-    	produitDao.addProduit(produit);
-
-        //return new ResponseEntity<Commande>(commande, HttpStatus.CREATED);
-    }
+	
     
     */
 
