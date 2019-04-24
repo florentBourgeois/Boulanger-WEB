@@ -33,6 +33,17 @@ public class ProduitDAO {
 		}
 		return null;
 	}
+
+
+
+	public void update(int id, Produit p) {
+		Produit prod = getByID(id);
+		
+		prod.setImg(p.getImg());
+		prod.setNom(p.getNom());
+		prod.setValeur(p.getValeur());
+		
+	}
 	
 	
 	
